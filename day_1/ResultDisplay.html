@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result Display</title>
+    <script>
+    function myResult(){
+        var team1=document.getElementById("team1").value;
+        var team2=document.getElementById("team2").value;
+        var score1=document.getElementById("score1").value;
+        var score2=document.getElementById("score2").value;
+
+        var sc1=score1.split('/');
+        var sc2=score2.split('/');
+        var w1=sc1[0]-sc2[0];
+        var w2=10-sc2[1];
+        if(team1==team2){
+            alert('Both teams are same');
+            return;
+        }
+        if(sc1[1]>10){
+            alert('Invalid Score for team1');
+            return;
+        }
+        if(sc2[1]>10){
+            alert('Invalid Score for team2');
+            return;
+        }
+        if(sc1[0]>sc2[0]){
+            alert(team1 +' won by ' +w1+' runs');
+            return;
+
+        }
+        else if (sc2[0]>sc1[0]){
+            alert(team2+' won by '+w2+ ' wickets');
+            return;
+
+        }
+        else{
+            alert('Match draw');
+        }
+
+    }
+    </script>
+</head>
+<body>
+    <h2 style="text-align: center; color: red;">Result Display</h2>
+    <form>
+        <table>
+            <tr>
+             <th> C Team 1</th>
+             <td><input type="text" id="team1"></td>
+             </tr><br><br>
+             <tr>
+                <th>Team Score</th>
+                <td><input type="text" name="" id="score1"></td>
+             </tr>
+             <tr>
+                <th>C Team 2</th>
+                <td><input type="text" id="team2"></td>
+                </tr><br><br>
+                <tr>
+                   <th>Team Score</th>
+                   <td><input type="text" name="" id="score2"></td>
+                </tr>
+        
+        </table><br>
+        <input type="submit" value="Result" onclick="myResult()">
+    </form>
+</body>
+</html>
